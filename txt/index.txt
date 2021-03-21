@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pittsburgh Destinations</title>
+        <link rel="stylesheet" href="css/final_project.css">
+    </head>
+    <body>
+    <?php
+        include 'html/navbar.html';
+
+        echo "<h1 style=\"text-align: center;\">Welcome to Pittsburgh Destinations!<br>
+        Here, you will find popular locations around Pittsburgh.</h1>";
+        echo "<img src=\"img/pitt.jpg\" style=\"display:block; margin-left: auto; margin-right: auto; width: 75%;\"></img>";
+    ?>
+    <script>
+        document.getElementById("index").innerHTML = "<u>Home</u>";
+    </script>
+    </body>
+</html>

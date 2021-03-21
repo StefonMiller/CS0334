@@ -1,0 +1,7 @@
+<?php
+   $hn = "hostname";
+   $db = "database";
+   $un = "username";
+   $pw = "password";
+
+?>

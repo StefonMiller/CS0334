@@ -1,0 +1,135 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Nov 30, 2020 at 04:36 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.9
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `final_project`
+--
+CREATE DATABASE IF NOT EXISTS `final_project` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `final_project`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `attraction`
+--
+
+CREATE TABLE `attraction` (
+  `attraction_id` int(11) NOT NULL,
+  `attraction_type` varchar(50) DEFAULT NULL,
+  `attraction_name` varchar(150) DEFAULT NULL,
+  `attraction_address` varchar(100) DEFAULT NULL,
+  `attraction_covid` int(11) DEFAULT NULL,
+  `attraction_image` varchar(250) DEFAULT NULL,
+  `attraction_description` varchar(500) DEFAULT NULL,
+  `attraction_price` varchar(5) DEFAULT NULL,
+  `attraction_site` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `attraction`
+--
+
+INSERT INTO `attraction` (`attraction_id`, `attraction_type`, `attraction_name`, `attraction_address`, `attraction_covid`, `attraction_image`, `attraction_description`, `attraction_price`, `attraction_site`) VALUES
+(1, 'sights', 'Cathedral of Learning', '4200 Fifth Ave', 3, '../img/cathy.jpg', 'The Cathedral of Learning is a building that serves as the centerpiece of the University of Pittsburgh\'s main campus in the Oakland neighborhood of Pittsburgh. Standing at 535 feet (163 m), the 42-story Late Gothic Revival Cathedral is the tallest educational building in the Western hemisphere.', '$', 'https://www.nationalityrooms.pitt.edu/about/cathedral-learning'),
+(2, 'sights', 'Phipps Conservatory and Botanical Gardens', '1 Schenley Drive', 4, '../img/phipps.jpg', 'Phipps Conservatory and Botanical Gardens is a botanical garden set in Schenley Park. It is a historic landmark and is listed on the National Register of Historic Places.', '$$', 'https://www.phipps.conservatory.org/'),
+(3, 'sights', 'Randyland', '1501 Arch St', 2, '../img/randy.jpg', 'Folk artist Randy Gilson\'s landmark building, filled with vividly colored, upbeat murals & objects.', '$', 'https://randy.land/'),
+(4, 'food', 'Primanti Bros.', '46 18th Street', 5, '../img/primantis.jpg', 'Founded in 1933, the chain is known for its signature sandwiches of grilled meat, melted cheese, an oil & vinegar-based coleslaw, tomato slices, and French fries between two thick slices of Italian bread.', '$', 'https://primantibros.com/'),
+(5, 'food', 'Cioppino', '2350 Railroad Street', 3, '../img/cioppino.jpg', 'Upscale seafood eatery serving local & sustainable fare served amid dark wood decor & warm hues.', '$$$', 'https://cioppinoofpittsburgh.com/'),
+(6, 'food', 'Cafe Moulin', '732 Filbert Street', 2, '../img/cafe.jpg', 'Rustic-modern French cafe offering sweet & savory crêpes, salads & other light fare, plus espresso.', '$$', 'https://cafemoulinpgh.com/'),
+(7, 'events', 'Mattress Factory Museum', '500 Sampsonia Way', 4, '../img/mattress.jpg', 'The Mattress Factory is a contemporary art museum located in Pittsburgh, Pennsylvania. It was a pioneer of site-specific installation art and features permanent installations by artists Yayoi Kusama, James Turrell, and Greer Lankton.', '$$', 'https://mattress.org/');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer`
+--
+
+CREATE TABLE `customer` (
+  `customer_id` int(11) NOT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
+  `first_name` varchar(50) DEFAULT NULL,
+  `address_1` varchar(100) DEFAULT NULL,
+  `address_2` varchar(50) DEFAULT NULL,
+  `city` varchar(100) DEFAULT NULL,
+  `state` varchar(50) DEFAULT NULL,
+  `zip` char(5) DEFAULT NULL,
+  `country` varchar(50) DEFAULT NULL,
+  `email` varchar(300) DEFAULT NULL,
+  `home_phone` varchar(15) DEFAULT NULL,
+  `cell_phone` varchar(15) DEFAULT NULL,
+  `user_id` varchar(20) DEFAULT NULL,
+  `password` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`customer_id`, `last_name`, `first_name`, `address_1`, `address_2`, `city`, `state`, `zip`, `country`, `email`, `home_phone`, `cell_phone`, `user_id`, `password`) VALUES
+(1, 'Pink', 'Mister', '123 Home Drive', 'Apartment 2', 'Los Angelas', 'California', '90013', 'United States', 'doesnt_tip@yahoo.com', '6544564444', '5204474591', 'no_tips4u', 'password'),
+(2, 'Blonde', 'Mister', '460 Second Street', 'Apartment 303', 'Los Angelas', 'California', '90011', 'United States', 'stealers_wheel@yahoo.com', '9309990303', '9179077514', 'sWheelFan22', 'razor32'),
+(3, 'Orange', 'Mister', '444 Holdaway Avenue', NULL, 'Los Angelas', 'California', '90010', 'United States', 'undercover@yahoo.com', '5209712500', '2252791572', 'undercover_cop', 'LAPD34'),
+(4, 'White', 'Mister', '939 Garden Street', 'Apartment 10', 'Los Angelas', 'California', '90013', 'United States', 'the_professional@yahoo.com', '8509157073', '2625378017', 'dead_enough', 'password09'),
+(5, 'Blue', 'Mister', '999 Old Avenue', 'Apartment 1', 'Los Angelas', 'California', '90012', 'United States', 'mr_blue@yahoo.com', '5028597702', '8432679326', 'old_man', 'password2344'),
+(6, 'Brown', 'Mister', '923 Brown Drive', NULL, 'Los Angelas', 'California', '90012', 'United States', 'worst_name@yahoo.com', '2706895338', '3609829926', 'tarantino', 'jaws1995'),
+(7, 'Cabot', 'Eddie', '8432 Hollywood Boulevard', NULL, 'Los Angelas', 'California', '90011', 'United States', 'cabot_eddie@yahoo.com', '3392984811', '2317374913', 'eddie_cabot', '70sRadio'),
+(8, 'Cabot', 'Joe', '8432 Hollywood Boulevard', NULL, 'Los Angelas', 'California', '90010', 'United States', 'JCabot@yahoo.com', '5087439618', '2172723555', 'myway_highway', 'password42'),
+(9, 'Nash', 'Marvin', '213 Help Street', 'Apartment 2', 'Los Angelas', 'California', '90012', 'United States', 'noear@yahoo.com', '8124167132', '8566299954', 'blueboy324', 'noear111'),
+(10, 'Brown', 'Jackie', '923 Brown Drive', NULL, 'Los Angelas', 'California', '90012', 'United States', 'jackiebrown@yahoo.com', '5132714375', '3259447303', 'jbrown', 'password231'),
+(11, 'Miller', 'Stefon', '505 Murphy Street', '', 'Hyde Park', 'PA', '15641', 'United States', 'stefonplays@gmail.com', '7249946261', '', 'smm248', 'test1'),
+(12, 'Miller', 'Stefon', '505 Murphy Street', '', 'Hyde Park', 'PA', '15641', 'United States', 'stefonplays@gmail.com', '7249946261', '', 'smm2483243245', 'Stefon1!');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `attraction`
+--
+ALTER TABLE `attraction`
+  ADD PRIMARY KEY (`attraction_id`);
+
+--
+-- Indexes for table `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`customer_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `attraction`
+--
+ALTER TABLE `attraction`
+  MODIFY `attraction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `customer`
+--
+ALTER TABLE `customer`
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
